@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Créer une Classe</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h1>Créer une Classe</h1>
+
+<form th:action="@{/classes}" th:object="${classe}" method="post">
+    <label>Nom de la classe:</label>
+    <input type="text" th:field="*{className}" required />
+
+    <label>Description:</label>
+    <textarea th:field="*{description}" required></textarea>
+
+    <label>Secteur:</label>
+    <select th:field="*{sector.id}" required>
+        <option th:each="secteur : ${sectors}" th:value="${secteur.id}" th:text="${secteur.name}"></option>
+    </select>
+
+    <button type="submit">Créer</button>
+</form>
+
+<a href="/classes">⬅️ Retour</a>
+</body>
+</html>

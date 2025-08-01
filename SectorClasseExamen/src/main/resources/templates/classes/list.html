@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Classes</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h1>Liste des Classes</h1>
+
+<a href="/classes/create">➕ Ajouter une nouvelle classe</a>
+<br/><br/>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Secteur</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="classe : ${classes}">
+        <td th:text="${classe.className}"></td>
+        <td th:text="${classe.description}"></td>
+        <td th:text="${classe.sector.name}"></td>
+        <td>
+            <a th:href="@{'/classes/edit/' + ${classe.id}}">✏️ Modifier</a>
+            <a th:href="@{'/classes/delete/' + ${classe.id}}"
+               onclick="return confirm('Supprimer cette classe ?')">❌ Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/sectors">⬅️ Retour aux secteurs</a>
+</body>
+</html>

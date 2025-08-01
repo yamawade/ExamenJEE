@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Modifier un Secteur</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h1>Modifier le Secteur</h1>
+
+<form th:action="@{'/sectors/update/' + ${sector.id}}" th:object="${sector}" method="post">
+  <label>Nom du secteur :</label>
+  <input type="text" th:field="*{name}" required />
+  <br/><br/>
+
+  <button type="submit">Enregistrer</button>
+</form>
+
+<a href="/sectors">⬅️ Retour</a>
+</body>
+</html>
