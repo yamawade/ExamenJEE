@@ -27,12 +27,6 @@ public class ClasseExamController {
         return "classes/list";
     }
 
-//    @GetMapping("/create")
-//    public String showCreateForm(Model model) {
-//        model.addAttribute("classe", new ClasseExam());
-//        return "classes/create";
-//    }
-
     @PostMapping
     public String createClasse(@ModelAttribute ClasseExam classe) {
         classeService.saveClasse(classe);
